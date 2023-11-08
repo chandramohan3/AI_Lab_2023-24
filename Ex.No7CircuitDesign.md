@@ -1,5 +1,5 @@
 # Ex.No: 7  Logic Programming –  Logic Circuit Design
-### DATE:                                                                           
+### DATE: 18/10/2023                                                                       
 ### REGISTER NUMBER : 212221223002
 ### AIM: 
 To write a logic program to design a circuit like half adder and half subtractor.
@@ -14,43 +14,31 @@ To write a logic program to design a circuit like half adder and half subtractor
 8. Stop the program.
 
 ### Program:
-% Define XOR gate
-xor_gate(0, 0, 0).
-xor_gate(0, 1, 1).
-xor_gate(1, 0, 1).
-xor_gate(1, 1, 0).
-
-% Define AND gate
-and_gate(0, 0, 0).
-and_gate(0, 1, 0).
-and_gate(1, 1, 1).
-and_gate(1, 0, 0).
-
-% Define OR gate
-or_gate(0, 0, 0).
-or_gate(0, 1, 1).
-or_gate(1, 0, 1).
-or_gate(1, 1, 1).
-
-% Define half adder
-half_adder(A, B, Sum, Cout) :-
-    xor_gate(A, B, Sum),
-    and_gate(A, B, Cout).
-
-% Define half subtractor
-half_subtractor(A, B, Diff, Bout) :-
-    xor_gate(A, B, Diff),
-    not_gate(B, B_not),
-    and_gate(A, B_not, Bout).
-
-% Define NOT gate
-not_gate(0, 1).
-not_gate(1, 0).
-
+```
+and(0,0,0).
+and(0,1,0).
+and(1,1,1).
+and(1,0,0).
+xor(0,0,0).
+xor(0,1,1).
+xor(1,0,1).
+xor(1,1,0).
+not(0,1).
+not(1,0).
+halfadder(A,B,S,C):-
+    xor(A,B,S),
+    and(A,B,C).
+halfsubtractor(A,B,Diff,Bo):-
+    xor(A,B,Diff),
+    not(A,X),
+    and(B,X,Bo).
+```
 
 ### Output:
 
-![image](https://github.com/sathiya7g/AI_Lab_2023-24/blob/main/Screenshot%202023-10-20%20175357.png)
+![image](https://github.com/Sudhindev/AI_Lab_2023-24/assets/130021386/3003bf44-8275-4296-87a8-9f596c00506e)
+
+
 
 
 ### Result:
