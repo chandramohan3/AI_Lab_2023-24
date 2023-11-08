@@ -1,41 +1,52 @@
-# Ex.No: 2  Implementation of Depth First Search
-                                                                          
+# Ex.No: 1  Implementation of Breadth First Search 
+### DATE:  18/10/2023                                                                     
 ### REGISTER NUMBER : 212221223002
 ### AIM: 
-To write a python program to implement Depth first Search. 
+To write a python program to implement Breadth first Search. 
 ### Algorithm:
 1. Start the program
 2. Create the graph by using adjacency list representation
-3. Define a function dfs and take the set “visited” is empty 
-4. Search start with initial node. Check the node is not visited then print the node.
-5. For each neighbor node, recursively invoke the dfs search.
-6. Call the dfs function by passing arguments visited, graph and starting node.
-7. Stop the program.
+3. Define a function bfs and take the set “visited” is empty and “queue” is empty
+4. Search start with initial node and add the node to visited and queue.
+5. For each neighbor node, check node is not in visited then add node to visited and queue list.
+6.  Creating loop to print the visited node.
+7.   Call the bfs function by passing arguments visited, graph and starting node.
+8.   Stop the program.
 ### Program:
-# Using a Python dictionary to act as an adjacency list
-graph = {
-'5' : ['3','7'],
-'3' : ['2', '4'],
-'7' : ['8'],
-'2' : [],
-'4' : ['8'],
-'8' : []
-}
-visited = set() # Set to keep track of visited nodes of graph.
-def dfs(visited, graph, node): #function for dfs
-    if node not in visited:
-        print (node)
-        visited.add(node)
-        for neighbour in graph[node]:
-            dfs(visited, graph, neighbour)
-# Driver Code
-print("Following is the Depth-First Search")
-dfs(visited, graph, '5')
+```
+graph = { 
+  '5' : ['3','7'], 
+  '3' : ['2', '4'], 
+  '7' : ['8'], 
+  '2' : [], 
+  '4' : ['8'], 
+  '8' : [] 
+} 
+visited = [] # List for visited nodes. 
+queue = []     #Initialize a queue 
+ 
+def bfs(visited, graph, node): #function for BFS 
+  visited.append(node) 
+  queue.append(node) 
+  while queue:          # Creating loop to visit each node 
+    m = queue.pop(0)  
+    print (m, end = " ")  
+    for neighbour in graph[m]: 
+      if neighbour not in visited: 
+        visited.append(neighbour) 
+        queue.append(neighbour) 
+ 
+# Driver Code 
+print("Following is the Breadth-First Search") 
+bfs(visited, graph, '5')    # function calling
+```
 
 ### Output:
-![image](https://github.com/nithish143257/AI_Lab_2023-24/assets/113762839/83e9e310-1da9-4afa-86aa-b42245cd1e67)
+![image](https://github.com/Sudhindev/AI_Lab_2023-24/assets/130021386/24d41a8c-e8b1-4469-82c0-7433aaaaad0a)
+
+
 
 
 
 ### Result:
-Thus the depth first search order was found sucessfully.
+Thus the breadth first search order was found sucessfully.
